@@ -1,1 +1,1 @@
-./gradlew build -Dorg.gradle.java.home="C:\Program Files\Java\jdk1.8.0_291" --stacktrace
+./gradlew build -Dorg.gradle.java.home="C:\Program Files\Java\java-se-8u41-ri" --stacktrace
