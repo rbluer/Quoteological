@@ -1,0 +1,13 @@
+/*
+ *  Quoteological is a Minecraft plugin.
+ *  Copyright (C) 2022 RoyalBlueRanger and 3DKingdom
+ *
+ *  Licensed under GPL-3.0 License.  Please see the LICENSE document 
+ *  as found in the root directory of this project.
+ *
+ */
+
+
+rootProject.name = 'Quoteological'
+/* include 'mgpq-core' */
+
