@@ -19,5 +19,6 @@ Upgraded Gradle to v7.1.1:
 
 
   
+ ./gradlew --version -Dorg.gradle.java.home="C:\Program Files\Java\java-se-8u41-ri"
  
  
