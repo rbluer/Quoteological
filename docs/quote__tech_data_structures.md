@@ -32,7 +32,7 @@ The benefit of formally structured data, is that the plugin would need minimal c
 
 **section**
 
-**line**
+**line** The lowest level identifier.
 
 
 Example of how it applies to the category of Bibles.
