@@ -77,4 +77,17 @@ public class CommandsMgpqCore
 	}
 	
 	
+	@Command( identifier = "quote test one", 
+			description = "Just another command to test the command handler",
+			onlyPlayers = false, 
+			aliases = {"qu test one", "qu one", "qot one"} )
+	public void quoteTestCommand( CommandSender sender ) {
+		
+		String message = "### simple quoteological test ###";
+		
+		sender.sendMessage( message );
+		Quoteological.getInstance().log( message );
+	}
+	
+	
 }
