@@ -24,6 +24,26 @@ The benefit of formally structured data, is that the plugin would need minimal c
 
 ## Data Control Structures
 
+**Category** The category is the highest level of data, and it defines everything related to that category.  All data within a category will be identical in format and will share the same characteristics.  
+
+**Collection** Some categories will have collections.  Collections will stand on its own and be a major grouping for the data. 
+
+**group**
+
+**section**
+
+**line**
+
+
+Example of how it applies to the category of Bibles.
+
+```
+category = Bible
+collection = kjv
+group = book
+section = chapter
+line = verse
+```
 
 <hr style="height:3px; border:none; color:#aaf; background-color:#aaf;">
 
