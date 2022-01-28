@@ -1,5 +1,5 @@
 name: Quoteological
-main: com.royalblueranger.mgpq.MiniGamePlayerQueue
+main: com.quoteological.Quoteological
 version: "${version}"
 
 description: Quoteological is a Minecraft plugin
