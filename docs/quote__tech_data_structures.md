@@ -57,6 +57,10 @@ line = verse
 ## Data File Formats
 
 
+Data files should be provided in a readable format that makes the most sense.
+
+
+
 <hr style="height:3px; border:none; color:#aaf; background-color:#aaf;">
 
 
