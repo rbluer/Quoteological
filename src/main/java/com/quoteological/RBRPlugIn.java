@@ -9,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.quoteological.commands.CommandHandler;
 import com.quoteological.db.SQLite;
+import com.quoteological.importer.QLogicalDataImporterText;
 
 
 /**
@@ -49,6 +50,7 @@ public abstract class RBRPlugIn
 //    	initializeDb( "MiniGamePlayerQueue" );
     	
     	
+    	QLogicalDataImporterText importerText = new QLogicalDataImporterText( this );
 
 
 //    	getServer().getPluginManager().registerEvents( this, this );

@@ -1,6 +1,7 @@
 package com.quoteological;
 
 import com.quoteological.command.CommandsMgpqCore;
+import com.quoteological.command.CommandsQLogic;
 
 /**
  * 
@@ -68,6 +69,7 @@ public class Quoteological
     	getCommandHandler().registerCommands( new CommandsMgpqCore() );
     	
     	
+    	getCommandHandler().registerCommands( new CommandsQLogic() );
 
 
 //    	getServer().getPluginManager().registerEvents( this, this );
