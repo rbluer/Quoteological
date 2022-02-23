@@ -1,5 +1,7 @@
 package com.quoteological.command;
 
+import java.io.File;
+
 import org.bukkit.command.CommandSender;
 
 import com.quoteological.Quoteological;
@@ -33,6 +35,26 @@ public class CommandsQLogic
 		
 		sender.sendMessage( dImport.getDataRawPath().getAbsolutePath() );
 		sender.sendMessage( dImport.getDatabasePath().getAbsolutePath() );
+		
+		
+//		Quoteological.getInstance().log( message );
+	}
+	
+	@Command( identifier = "quote test parse", 
+			description = "Simple test of directories",
+			onlyPlayers = false )
+	public void quoteTestParseCommand( CommandSender sender ) {
+		
+		String message = "### simple quoteological test Dirs ###";
+		sender.sendMessage( message );
+		
+		QLogicalDataImporterText dImport = 
+				new QLogicalDataImporterText( Quoteological.getInstance() );
+		
+		File file = dImport.getRawFile();
+		
+		dImport.parseZipFile( file );
+
 		
 		
 //		Quoteological.getInstance().log( message );
