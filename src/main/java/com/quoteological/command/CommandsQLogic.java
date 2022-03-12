@@ -51,9 +51,10 @@ public class CommandsQLogic
 		QLogicalDataImporterText dImport = 
 				new QLogicalDataImporterText( Quoteological.getInstance() );
 		
-		File file = dImport.getRawFile();
+		File inputFile = dImport.getRawFile();
+		File outputFile = dImport.getStandardizedFile();
 		
-		dImport.parseZipFile( file );
+		dImport.processRawInputFile( inputFile, outputFile );
 
 		
 		

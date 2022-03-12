@@ -3,14 +3,17 @@ package com.quoteological.importer;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 
 import com.quoteological.Quoteological;
 import com.quoteological.RBRPlugIn;
+import com.quoteological.data.StandardizedFormatData;
 
 public class QLogicalDataImporterText
 {
@@ -19,6 +22,10 @@ public class QLogicalDataImporterText
 	
 	public static final String FILE_INPUT_BIBLE_ENG_VPL__ZIP_FILE = "eng-web_vpl.zip";
 	public static final String FILE_INPUT_BIBLE_ENG_VPL__ZIP_ENTRY = "eng-web_vpl.txt";
+	
+	
+	public static final String FILE_OUTPUT_BIBLE_STD__ZIP_FILE = "stdinput_bible_eng.zip";
+	public static final String FILE_OUTPUT_BIBLE_STD__ZIP_ENTRY = "bible_eng.txt";
 	
 	
 	private File dataRawPath;
@@ -60,26 +67,59 @@ public class QLogicalDataImporterText
 		return file;
 	}
 	
-	public boolean parseZipFile( File file ) {
+	public File getStandardizedFile() {
+		
+		File file = new File( getDatabasePath(), FILE_OUTPUT_BIBLE_STD__ZIP_FILE );
+		
+		return file;
+	}
+	
+	public boolean processRawInputFile( File inputFile, File outputFile ) {
 		boolean results = false;
 		
-		int maxRecords = 10;
+		int maxRecords = 20;
 		
-		if ( !file.exists() ) {
+		if ( !inputFile.exists() ) {
 			Quoteological.getInstance().logError( 
-					"Error: QLogicalDataImporterText.parseZipFile: File does not exist: %s ",
-					file.getAbsolutePath()
+					"Error: QLogicalDataImporterText.parseZipFile: Input File does not exist: %s ",
+					inputFile.getAbsolutePath()
 					);
 			return false;
 		}
 		
+		if ( outputFile.exists() ) {
+			Quoteological.getInstance().logError( 
+					"Error: QLogicalDataImporterText.parseZipFile: Output File exists and will be replaced: %s ",
+					outputFile.getAbsolutePath()
+					);
+		}
+		
+//		String message1 = "This is a test message. inputFile: " + inputFile.getName() + 
+//						" outputFile: " + outputFile.getName();
+//		
+//		String message2 = String.format( 
+//				"This is a test message. inputFile: %-20s size: %12d outputFile: %s", 
+//				inputFile.getName(),
+//				inputFile.length(),
+//				outputFile.getName() );
+//		
+		
 		try ( 
-				ZipFile zin = new ZipFile( file );
+				ZipFile zin = new ZipFile( inputFile );
+				
+				ZipOutputStream zout = new ZipOutputStream( new FileOutputStream( outputFile ) );
 			)
 		{
+//			ZipEntry zEntry = zin.getEntry( FILE_INPUT_BIBLE_ENG_VPL__ZIP_ENTRY );
+
 			Enumeration<? extends ZipEntry> zipEntries = zin.entries();
 			
+			ZipEntry zEntryOut = new ZipEntry( FILE_OUTPUT_BIBLE_STD__ZIP_ENTRY );
+			
+			zout.putNextEntry(zEntryOut);
+			
 			while ( zipEntries.hasMoreElements() ) {
+				
 				
 				ZipEntry zEntry = zipEntries.nextElement();
 				
@@ -93,7 +133,7 @@ public class QLogicalDataImporterText
 						
 						int rows = 0;
 						String line = br.readLine();
-						while ( line != null && rows++ < maxRecords ) {
+						while ( line != null ) {
 							
 							// Process the data:
 							int pos1 = line.indexOf( ' ' );
@@ -106,9 +146,23 @@ public class QLogicalDataImporterText
 								String verse = line.substring( pos2 + 1, pos3 );
 								String text = line.substring( pos3 + 1 );
 								
-								System.out.println( String.format( 
-										"Book: %s  Chapter: %s  Verse: %s  TextLen: %d ", 
-										book, chapter, verse, text.length() ));
+//								System.out.println( String.format( 
+//										"Book: %s  Chapter: %s  Verse: %s  TextLen: %d ", 
+//										book, chapter, verse, text.length() ));
+								
+								// Create new data object
+								StandardizedFormatData data = new StandardizedFormatData( 
+										"Bible", "English", rows++, book, chapter, verse, text );
+								
+								// Convert to TSV
+								String outputTsv = data.toTsv();
+								
+								// Convert to byte array
+								byte[] output = outputTsv.getBytes();
+								
+								// write to output stream:
+								zout.write(output, 0, output.length );
+								
 							}
 							
 							line = br.readLine();
