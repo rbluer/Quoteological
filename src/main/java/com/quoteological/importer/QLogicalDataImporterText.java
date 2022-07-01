@@ -77,8 +77,6 @@ public class QLogicalDataImporterText
 	public boolean processRawInputFile( File inputFile, File outputFile ) {
 		boolean results = false;
 		
-		int maxRecords = 20;
-		
 		if ( !inputFile.exists() ) {
 			Quoteological.getInstance().logError( 
 					"Error: QLogicalDataImporterText.parseZipFile: Input File does not exist: %s ",

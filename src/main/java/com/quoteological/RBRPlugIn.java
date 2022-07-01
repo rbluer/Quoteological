@@ -7,9 +7,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.quoteological.commands.CommandHandler;
 import com.quoteological.db.SQLite;
 import com.quoteological.importer.QLogicalDataImporterText;
+import com.royalblueranger.blues.commands.CommandHandler;
 
 
 /**

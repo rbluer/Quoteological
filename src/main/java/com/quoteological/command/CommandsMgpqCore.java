@@ -3,8 +3,8 @@ package com.quoteological.command;
 import org.bukkit.command.CommandSender;
 
 import com.quoteological.Quoteological;
-import com.quoteological.commands.BaseCommands;
-import com.quoteological.commands.Command;
+import com.royalblueranger.blues.commands.BaseCommands;
+import com.royalblueranger.blues.commands.Command;
 
 public class CommandsMgpqCore
 		extends BaseCommands

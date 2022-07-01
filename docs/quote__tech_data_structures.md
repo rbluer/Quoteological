@@ -28,11 +28,15 @@ The benefit of formally structured data, is that the plugin would need minimal c
 
 **Collection** Some categories will have collections.  Collections will stand on its own and be a major grouping for the data. 
 
+**row** This is a zero based counter of all rows (records) in the given collection.  This will be used to allow full random access to any text entry in the collection by selecting between a value of 0 and n.
+
 **group**
 
 **section**
 
 **line** The lowest level identifier.
+
+**text** The actual text
 
 
 Example of how it applies to the category of Bibles.
@@ -40,9 +44,11 @@ Example of how it applies to the category of Bibles.
 ```
 category = Bible
 collection = kjv
+row = row
 group = book
 section = chapter
 line = verse
+text = text
 ```
 
 <hr style="height:3px; border:none; color:#aaf; background-color:#aaf;">
