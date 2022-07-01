@@ -2,6 +2,7 @@ package com.quoteological;
 
 import com.quoteological.command.CommandsMgpqCore;
 import com.quoteological.command.CommandsQLogic;
+import com.royalblueranger.blues.bstats.InitializeBstats;
 
 /**
  * 
@@ -12,9 +13,12 @@ import com.quoteological.command.CommandsQLogic;
 public class Quoteological
 	extends RBRPlugIn
 {
+	public static final int BSTATS_ID__QUOTEOLOGICAL = 15646;
 
 	private static Quoteological instance;
-	
+
+	@SuppressWarnings("unused")
+	private InitializeBstats bstats;	
 	
 
 	/**
@@ -74,6 +78,8 @@ public class Quoteological
 
 //    	getServer().getPluginManager().registerEvents( this, this );
 
+    	
+    	bstats = new InitializeBstats( this, BSTATS_ID__QUOTEOLOGICAL );
     	
     }
 
