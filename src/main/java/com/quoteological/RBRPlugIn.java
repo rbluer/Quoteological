@@ -109,7 +109,9 @@ public abstract class RBRPlugIn
     {
     	message = logPrefix() + 
     			String.format( message, args );
-    	
+    	    	
+    	message = ChatColor.translateAlternateColorCodes('&', message);
+
     	if ( !logsColor )
     	{
     		message = ChatColor.stripColor( message );
