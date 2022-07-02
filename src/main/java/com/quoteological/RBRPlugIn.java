@@ -7,9 +7,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.quoteological.blues.commands.CommandHandler;
 import com.quoteological.db.SQLite;
 import com.quoteological.importer.QLogicalDataImporterText;
-import com.royalblueranger.blues.commands.CommandHandler;
 
 
 /**
@@ -95,8 +95,8 @@ public abstract class RBRPlugIn
     
     private String logPrefix() {
     	return ChatColor.GRAY + "[" +
-    			ChatColor.AQUA + "Blue's" +
-    			ChatColor.WHITE + " MGPQ" +
+    			ChatColor.AQUA + "Quote" +
+    			ChatColor.WHITE + "ological" +
     			ChatColor.GRAY + "] ";
     }
     

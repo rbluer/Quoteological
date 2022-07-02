@@ -1,8 +1,8 @@
 package com.quoteological;
 
+import com.quoteological.blues.bstats.InitializeBstats;
 import com.quoteological.command.CommandsMgpqCore;
 import com.quoteological.command.CommandsQLogic;
-import com.royalblueranger.blues.bstats.InitializeBstats;
 
 /**
  * 

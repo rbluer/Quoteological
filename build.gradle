@@ -219,7 +219,7 @@ shadowJar {
 //        include(dependency('com.github.cryptomorin:XSeries:7.5.4'))
     }
     
-    relocate 'org.bstats', 'tech.mcprison.prison.bstats'
+   relocate 'org.bstats', 'com.quoteological.blues.shadded.bstats'
 
 //    relocate 'org.bstats.bukkit', 'com.royalblueranger.mgpq.spigot'
 //    relocate 'org.inventivetalent.update.spiget', 'com.royalblueranger.mgpq.spiget'

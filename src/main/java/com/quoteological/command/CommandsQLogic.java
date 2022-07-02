@@ -5,9 +5,9 @@ import java.io.File;
 import org.bukkit.command.CommandSender;
 
 import com.quoteological.Quoteological;
+import com.quoteological.blues.commands.BaseCommands;
+import com.quoteological.blues.commands.Command;
 import com.quoteological.importer.QLogicalDataImporterText;
-import com.royalblueranger.blues.commands.BaseCommands;
-import com.royalblueranger.blues.commands.Command;
 
 
 public class CommandsQLogic
